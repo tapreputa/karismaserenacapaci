@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#aa8866" />
+  <title>Karisma Estetiquè | Recensione Google</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+      background: #d9c3a6;
+    }
+
+    body {
+      min-height: 100svh;
+      color: #fff;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: max(16px, env(safe-area-inset-top)) 14px
+               max(14px, env(safe-area-inset-bottom));
+      background:
+        linear-gradient(
+          180deg,
+          rgba(48, 34, 24, .15) 0%,
+          rgba(48, 34, 24, .06) 35%,
+          rgba(48, 34, 24, .18) 70%,
+          rgba(32, 22, 15, .44) 100%
+        ),
+        url("./sfondo.png") center center / cover no-repeat;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,.02) 0%,
+        rgba(0,0,0,.02) 50%,
+        rgba(0,0,0,.14) 100%
+      );
+    }
+
+    .content {
+      width: min(95vw, 540px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .brand-wrap {
+      width: min(94vw, 520px);
+      padding: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(55, 36, 22, .17);
+    }
+
+    .brand {
+      width: 100%;
+      height: auto;
+      max-height: 205px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .eyebrow {
+      font-size: clamp(.82rem, 3.4vw, 1rem);
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #fffaf3;
+      text-shadow: 0 2px 10px rgba(0,0,0,.44);
+    }
+
+    .card {
+      width: 100%;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(255,255,255,.48);
+      border-radius: 24px;
+      background: rgba(255, 250, 244, .88);
+      color: #49382d;
+      box-shadow:
+        0 13px 38px rgba(51, 33, 20, .22),
+        inset 0 1px 0 rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .message {
+      font-size: clamp(1rem, 4.2vw, 1.17rem);
+      line-height: 1.43;
+      font-weight: 650;
+      margin-bottom: 17px;
+      text-wrap: balance;
+    }
+
+    .review-btn {
+      position: relative;
+      width: min(100%, 420px);
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 15px 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.50);
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-size: clamp(1rem, 4vw, 1.12rem);
+      font-weight: 800;
+      letter-spacing: .01em;
+      background: linear-gradient(135deg, #886648 0%, #b49169 48%, #8b694d 100%);
+      box-shadow:
+        0 9px 23px rgba(87, 58, 38, .31),
+        inset 0 1px 0 rgba(255,255,255,.28);
+      transform: translateZ(0);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .review-btn:active {
+      transform: scale(.976);
+      box-shadow:
+        0 5px 14px rgba(87,58,38,.25),
+        inset 0 1px 0 rgba(255,255,255,.24);
+    }
+
+    .google-g {
+      position: relative;
+      z-index: 2;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #4285f4;
+      font-size: 15px;
+      font-weight: 900;
+      box-shadow: 0 1px 5px rgba(0,0,0,.16);
+    }
+
+    .label {
+      position: relative;
+      z-index: 2;
+    }
+
+    .review-btn::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -45%;
+      width: 31%;
+      height: 180%;
+      transform: rotate(18deg);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.10),
+        rgba(255,247,219,.72),
+        rgba(255,255,255,.12),
+        transparent
+      );
+      animation: beautySweep 3.4s ease-in-out infinite;
+    }
+
+    @keyframes beautySweep {
+      0%, 16% { left: -45%; opacity: 0; }
+      24% { opacity: 1; }
+      62% { left: 118%; opacity: 1; }
+      70%, 100% { left: 118%; opacity: 0; }
+    }
+
+    .sparkle {
+      position: absolute;
+      z-index: 1;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff7d9;
+      box-shadow: 0 0 9px rgba(255,236,179,.95);
+      opacity: 0;
+      animation: sparkle 2.8s ease-in-out infinite;
+    }
+
+    .s1 { left: 18%; top: 25%; animation-delay: .15s; }
+    .s2 { right: 19%; top: 62%; animation-delay: .85s; width: 4px; height: 4px; }
+    .s3 { right: 31%; top: 23%; animation-delay: 1.45s; width: 3px; height: 3px; }
+
+    @keyframes sparkle {
+      0%, 24%, 100% { opacity: 0; transform: scale(.4); }
+      38% { opacity: .95; transform: scale(1.45); }
+      53% { opacity: 0; transform: scale(.55); }
+    }
+
+    .stars {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      color: #f4b400;
+      font-size: clamp(1.5rem, 7vw, 2rem);
+      line-height: 1;
+      filter: drop-shadow(0 2px 3px rgba(122,84,30,.18));
+    }
+
+    footer {
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.95);
+      text-shadow: 0 2px 8px rgba(0,0,0,.50);
+    }
+
+    footer strong {
+      color: #d8f2df;
+      font-weight: 800;
+    }
+
+    @media (max-width: 480px) {
+      .content { width: min(96vw, 500px); gap: 10px; }
+      .brand-wrap { width: min(94vw, 470px); border-radius: 19px; }
+      .brand { max-height: 180px; }
+      .card { border-radius: 22px; padding: 19px 16px 17px; }
+      .review-btn { min-height: 56px; }
+    }
+
+    @media (max-height: 720px) {
+      .page { justify-content: flex-start; padding-top: 12px; }
+      .content { gap: 8px; }
+      .brand-wrap { width: min(82vw, 390px); }
+      .brand { max-height: 135px; }
+      .card { padding-top: 15px; padding-bottom: 14px; }
+      .message { margin-bottom: 12px; line-height: 1.33; }
+      .stars { margin-top: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .review-btn::before,
+      .sparkle { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="content">
+      <div class="brand-wrap">
+        <img class="brand" src="./logo.png" alt="Karisma centro estetica" />
+      </div>
+
+      <div class="eyebrow">La tua opinione conta</div>
+
+      <div class="card">
+        <p class="message">
+          Il tuo feedback ci aiuta a fare sempre meglio.
+          Dicci la tua! Bastano 2 secondi!
+        </p>
+
+        <a
+          class="review-btn"
+          href="https://www.google.com/search?q=Karisma+Estetiqu%C3%A8+Capaci&ludocid=9548363429948974996#lrd=0x0:0x848299f33c706794,3,,,"
+          aria-label="Lascia una recensione Google a Karisma Estetiquè"
+        >
+          <span class="sparkle s1"></span>
+          <span class="sparkle s2"></span>
+          <span class="sparkle s3"></span>
+          <span class="google-g">G</span>
+          <span class="label">Recensione Google</span>
+        </a>
+
+        <div class="stars" aria-label="5 stelle">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+      </div>
+
+      <footer>Powered by <strong>Tapreputa</strong></footer>
+    </section>
+  </main>
+</body>
+</html>
