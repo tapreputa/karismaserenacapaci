@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#b9966e" />
+  <title>Karisma Estetiquè | Recensione Google</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      overflow-x: hidden;
+      background: #d9c3a6;
+    }
+
+    body {
+      min-height: 100svh;
+      color: #fff;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: max(18px, env(safe-area-inset-top)) 18px
+               max(16px, env(safe-area-inset-bottom));
+      background:
+        linear-gradient(
+          180deg,
+          rgba(49, 34, 23, .22) 0%,
+          rgba(49, 34, 23, .10) 33%,
+          rgba(49, 34, 23, .24) 67%,
+          rgba(38, 26, 18, .48) 100%
+        ),
+        url("./sfondo.png") center center / cover no-repeat;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,.03) 0%,
+        rgba(0,0,0,.03) 48%,
+        rgba(0,0,0,.17) 100%
+      );
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .content {
+      width: min(94vw, 540px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .brand {
+      width: min(92vw, 520px);
+      max-height: 210px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 4px 14px rgba(0,0,0,.20));
+    }
+
+    .eyebrow {
+      font-size: clamp(.82rem, 3.4vw, 1rem);
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      color: #fff9f1;
+      text-shadow: 0 2px 10px rgba(0,0,0,.45);
+    }
+
+    .card {
+      width: 100%;
+      padding: 22px 20px 20px;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 25px;
+      background: rgba(255, 250, 244, .88);
+      box-shadow:
+        0 14px 40px rgba(44, 28, 16, .22),
+        inset 0 1px 0 rgba(255,255,255,.72);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px);
+      color: #4c392c;
+    }
+
+    .message {
+      font-size: clamp(1rem, 4.2vw, 1.18rem);
+      line-height: 1.46;
+      font-weight: 600;
+      margin-bottom: 18px;
+      text-wrap: balance;
+    }
+
+    .review-btn {
+      position: relative;
+      width: min(100%, 420px);
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,.48);
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-size: clamp(1rem, 4vw, 1.12rem);
+      font-weight: 800;
+      letter-spacing: .01em;
+
+      background: linear-gradient(135deg, #8b684b 0%, #b8956d 48%, #8d6b4f 100%);
+      box-shadow:
+        0 9px 24px rgba(99, 67, 43, .30),
+        inset 0 1px 0 rgba(255,255,255,.28);
+      transform: translateZ(0);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .review-btn:active {
+      transform: scale(.975);
+      box-shadow:
+        0 5px 15px rgba(99,67,43,.25),
+        inset 0 1px 0 rgba(255,255,255,.24);
+    }
+
+    .review-btn .google-g {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #4285f4;
+      font-size: 15px;
+      font-weight: 900;
+      box-shadow: 0 1px 5px rgba(0,0,0,.16);
+      z-index: 2;
+    }
+
+    .review-btn .label {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Bagliore beauty/champagne */
+    .review-btn::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -45%;
+      width: 32%;
+      height: 180%;
+      transform: rotate(18deg);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.10),
+        rgba(255,248,228,.70),
+        rgba(255,255,255,.12),
+        transparent
+      );
+      animation: beautySweep 3.4s ease-in-out infinite;
+    }
+
+    @keyframes beautySweep {
+      0%, 16% { left: -45%; opacity: 0; }
+      24% { opacity: 1; }
+      62% { left: 118%; opacity: 1; }
+      70%, 100% { left: 118%; opacity: 0; }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff8dc;
+      box-shadow: 0 0 9px rgba(255,240,190,.95);
+      opacity: 0;
+      z-index: 1;
+      animation: sparkle 2.8s ease-in-out infinite;
+    }
+
+    .sparkle.s1 { left: 18%; top: 25%; animation-delay: .15s; }
+    .sparkle.s2 { right: 19%; top: 62%; animation-delay: .85s; width: 4px; height: 4px; }
+    .sparkle.s3 { right: 31%; top: 23%; animation-delay: 1.45s; width: 3px; height: 3px; }
+
+    @keyframes sparkle {
+      0%, 24%, 100% { opacity: 0; transform: scale(.4); }
+      38% { opacity: .95; transform: scale(1.45); }
+      53% { opacity: 0; transform: scale(.55); }
+    }
+
+    .stars {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      color: #f4b400;
+      font-size: clamp(1.5rem, 7vw, 2rem);
+      line-height: 1;
+      filter: drop-shadow(0 2px 3px rgba(122,84,30,.18));
+    }
+
+    footer {
+      margin-top: 1px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.94);
+      text-shadow: 0 2px 8px rgba(0,0,0,.48);
+    }
+
+    footer strong {
+      color: #d9f2df;
+      font-weight: 800;
+    }
+
+    @media (max-width: 480px) {
+      .page { padding-left: 14px; padding-right: 14px; }
+      .content { width: min(96vw, 500px); gap: 12px; }
+      .brand { width: min(94vw, 460px); max-height: 185px; }
+      .card { border-radius: 22px; padding: 20px 16px 18px; }
+      .review-btn { min-height: 56px; }
+    }
+
+    @media (max-height: 720px) {
+      .page { justify-content: flex-start; padding-top: 14px; }
+      .content { gap: 9px; }
+      .brand { width: min(82vw, 390px); max-height: 140px; }
+      .card { padding-top: 16px; padding-bottom: 15px; }
+      .message { margin-bottom: 13px; line-height: 1.34; }
+      .stars { margin-top: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .review-btn::before,
+      .sparkle { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="content">
+      <img class="brand" src="./logo.png" alt="Karisma centro estetica" />
+
+      <div class="eyebrow">La tua opinione conta</div>
+
+      <div class="card">
+        <p class="message">
+          Il tuo feedback ci aiuta a fare sempre meglio.
+          Dicci la tua! Bastano 2 secondi!
+        </p>
+
+        <a
+          class="review-btn"
+          href="https://www.google.com/maps?cid=9548363429948974996"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Lascia una recensione Google a Karisma Estetiquè"
+        >
+          <span class="sparkle s1"></span>
+          <span class="sparkle s2"></span>
+          <span class="sparkle s3"></span>
+          <span class="google-g">G</span>
+          <span class="label">Recensione Google</span>
+        </a>
+
+        <div class="stars" aria-label="5 stelle">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+      </div>
+
+      <footer>Powered by <strong>Tapreputa</strong></footer>
+    </section>
+  </main>
+</body>
+</html>
