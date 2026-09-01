@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#9a795e">
+<title>Karisma Estetiquè | Recensioni</title>
+<!-- Versione estetica V2: geometria definitiva invariata -->
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    color: white;
+    background: #bda58d;
+}
+
+.pagina {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    padding: 22px clamp(20px, 6vw, 86px) 86px;
+    background-image: url("./sfondo.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.pagina::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(52,35,23,0.05) 0%,
+        rgba(52,35,23,0.03) 38%,
+        rgba(35,23,15,0.17) 68%,
+        rgba(24,16,11,0.34) 100%
+    );
+}
+
+.brand,
+.centro,
+.recensione,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* LOGO */
+.brand {
+    justify-self: center;
+    width: min(82vw, 430px);
+    margin-top: 6px;
+}
+
+.logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    filter:
+        drop-shadow(0 8px 18px rgba(44,29,18,0.18))
+        saturate(0.96);
+    opacity: 0.97;
+}
+
+/* BLOCCO CENTRALE */
+.centro {
+    align-self: center;
+    justify-self: center;
+    width: min(100%, 780px);
+    margin-top: -5vh;
+    text-align: center;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    transform: translateY(-24px);
+    margin-bottom: 2px;
+    color: #fffaf4;
+    font-size: 1.12rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(46,29,17,0.90);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,244,230,0.96)
+    );
+}
+
+.eyebrow::after {
+    transform: scaleX(-1);
+}
+
+/* MESSAGGIO */
+.messaggio-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: linear-gradient(
+        145deg,
+        rgba(105,77,57,0.59),
+        rgba(72,49,34,0.51)
+    );
+    border: 1px solid rgba(255,239,220,0.40);
+    box-shadow:
+        0 15px 35px rgba(43,28,17,0.34),
+        inset 0 1px 0 rgba(255,255,255,0.13);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.messaggio-box::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,229,196,0.78),
+        transparent
+    );
+}
+
+.messaggio {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: clamp(23px, 3.3vw, 37px);
+    color: white;
+    font-size: clamp(1.30rem, 3.2vw, 2.15rem);
+    line-height: 1.32;
+    text-shadow: 0 2px 7px rgba(39,25,16,0.70);
+}
+
+/* RECENSIONE */
+.recensione {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: clamp(44px, 7vh, 78px);
+}
+
+/* PULSANTE */
+.bottone-google {
+    position: relative;
+    min-width: min(86vw, 350px);
+    height: 72px;
+    padding: 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255,237,211,0.95);
+    border-radius: 17px;
+    background: linear-gradient(
+        180deg,
+        #fffdf8 0%,
+        #faecd9 46%,
+        #e9c99f 100%
+    );
+    color: #453126;
+    box-shadow:
+        0 18px 40px rgba(48,31,19,0.38),
+        0 0 28px rgba(218,174,120,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.96);
+    font-size: clamp(1.32rem, 3vw, 1.65rem);
+    font-weight: 800;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.20s ease, box-shadow 0.20s ease;
+}
+
+.bottone-google:active {
+    transform: scale(0.97);
+}
+
+.bottone-google::before {
+    content: "";
+    position: absolute;
+    top: -35%;
+    left: -135px;
+    width: 85px;
+    height: 175%;
+    transform: rotate(18deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.12),
+        rgba(255,248,224,0.78),
+        rgba(229,189,139,0.34),
+        transparent
+    );
+    filter: blur(1px);
+    animation: riflessoBeauty 5.8s ease-in-out infinite;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.bagliore {
+    position: absolute;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff1c7;
+    box-shadow:
+        0 0 5px rgba(255,241,201,0.95),
+        0 0 11px rgba(218,170,115,0.70);
+    opacity: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.bagliore1 {
+    left: 12%;
+    top: 57%;
+    animation: bagliore1 4.8s ease-in-out infinite;
+}
+
+.bagliore2 {
+    right: 13%;
+    top: 30%;
+    animation: bagliore2 5.6s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.bagliore3 {
+    right: 25%;
+    bottom: 17%;
+    width: 4px;
+    height: 4px;
+    animation: bagliore3 6.2s ease-in-out infinite;
+    animation-delay: 3.1s;
+}
+
+.testo-bottone {
+    position: relative;
+    z-index: 5;
+}
+
+/* STELLE */
+.stelle {
+    color: #ffc107;
+    font-size: clamp(2.1rem, 5vw, 2.8rem);
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-shadow:
+        0 0 8px rgba(255,193,7,0.70),
+        0 0 22px rgba(255,193,7,0.34),
+        0 4px 10px rgba(0,0,0,0.40);
+}
+
+/* FOOTER */
+footer {
+    position: absolute;
+    right: clamp(20px, 6vw, 86px);
+    bottom: 30px;
+    color: rgba(255,255,255,0.92);
+    font-size: 1rem;
+    text-align: right;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.85);
+}
+
+footer strong {
+    color: #e7f6eb;
+    font-size: 1.12rem;
+    font-weight: 800;
+}
+
+/* ANIMAZIONI */
+@keyframes riflessoBeauty {
+    0%, 58% { left: -135px; opacity: 0; }
+    64% { opacity: 0.25; }
+    72% { opacity: 0.90; }
+    88%, 100% { left: 115%; opacity: 0; }
+}
+
+@keyframes bagliore1 {
+    0%, 20% { transform: translateY(4px) scale(0.2); opacity: 0; }
+    34% { transform: translateY(0) scale(1); opacity: 0.95; }
+    48% { transform: translateY(-4px) scale(0.5); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes bagliore2 {
+    0%, 30% { transform: translateY(3px) scale(0.2); opacity: 0; }
+    43% { transform: translateY(0) scale(1); opacity: 0.82; }
+    55% { transform: translateY(-3px) scale(0.4); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes bagliore3 {
+    0%, 38% { transform: scale(0.2); opacity: 0; }
+    48% { transform: scale(1); opacity: 0.78; }
+    60% { transform: scale(0.3); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* SMARTPHONE — stessi rapporti del template definitivo */
+@media (max-width: 600px) {
+    .pagina {
+        min-height: 100svh;
+        padding:
+            max(18px, env(safe-area-inset-top))
+            18px
+            max(82px, env(safe-area-inset-bottom));
+    }
+
+    .brand {
+        width: min(88vw, 400px);
+        margin-top: 5px;
+    }
+
+    .logo {
+        border-radius: 17px;
+    }
+
+    .centro {
+        width: 100%;
+        margin-top: -5vh;
+    }
+
+    .eyebrow {
+        transform: translateY(-32px);
+        gap: 10px;
+        font-size: 1rem;
+        letter-spacing: 0.13em;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 38px;
+    }
+
+    .messaggio-box {
+        border-radius: 21px;
+    }
+
+    .messaggio {
+        padding: 21px 20px;
+        font-size: clamp(1.20rem, 5vw, 1.48rem);
+        line-height: 1.32;
+    }
+
+    .recensione {
+        gap: 16px;
+        margin-bottom: 44px;
+    }
+
+    .bottone-google {
+        width: min(88vw, 345px);
+        min-width: 0;
+        height: 66px;
+        padding: 0 24px;
+        font-size: 1.32rem;
+        border-radius: 16px;
+    }
+
+    .stelle {
+        font-size: clamp(2rem, 8vw, 2.55rem);
+    }
+
+    footer {
+        right: 18px;
+        bottom: max(27px, env(safe-area-inset-bottom));
+        font-size: 0.90rem;
+    }
+
+    footer strong {
+        font-size: 1rem;
+    }
+}
+
+/* SOLO display molto bassi: mantiene il layout senza schiacciare tutto */
+@media (max-width: 600px) and (max-height: 720px) {
+    .brand {
+        width: min(76vw, 340px);
+    }
+
+    .centro {
+        margin-top: -2vh;
+    }
+
+    .eyebrow {
+        transform: translateY(-20px);
+        font-size: 0.88rem;
+    }
+
+    .messaggio {
+        padding: 16px 18px;
+        font-size: 1.08rem;
+    }
+
+    .recensione {
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+
+    .bottone-google {
+        height: 58px;
+        font-size: 1.22rem;
+    }
+
+    .stelle {
+        font-size: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bottone-google::before,
+    .bagliore {
+        animation: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <div class="brand">
+        <img
+            id="logo"
+            class="logo"
+            src="./logo.png"
+            alt="Karisma Estetiquè"
+        >
+    </div>
+
+    <section class="centro">
+
+        <div class="eyebrow">
+            La tua opinione conta
+        </div>
+
+        <div class="messaggio-box">
+            <p class="messaggio">
+                Il tuo feedback ci aiuta a fare sempre meglio.
+                Dicci la tua! Bastano 2 secondi!
+            </p>
+        </div>
+
+    </section>
+
+    <section class="recensione">
+
+        <a
+            id="bottoneGoogle"
+            class="bottone-google"
+            href="https://search.google.com/local/writereview?placeid=ChIJ1TVMQb_rGRMRlGdwPPOZgoQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Lascia una recensione Google"
+        >
+            <span class="bagliore bagliore1"></span>
+            <span class="bagliore bagliore2"></span>
+            <span class="bagliore bagliore3"></span>
+            <span class="testo-bottone">
+                Recensione Google
+            </span>
+        </a>
+
+        <div class="stelle" aria-label="5 stelle">
+            ★★★★★
+        </div>
+
+    </section>
+
+    <footer>
+        Powered by <strong>Tapreputa</strong>
+    </footer>
+
+</main>
+
+<script>
+const configurazione = {
+    logo: "./logo.png",
+    nomeAttivita: "Karisma Estetiquè",
+    linkRecensioni: "https://search.google.com/local/writereview?placeid=ChIJ1TVMQb_rGRMRlGdwPPOZgoQ"
+};
+
+document.title = configurazione.nomeAttivita + " | Recensioni";
+
+const logo = document.getElementById("logo");
+const bottone = document.getElementById("bottoneGoogle");
+
+logo.src = configurazione.logo;
+logo.alt = configurazione.nomeAttivita;
+bottone.href = configurazione.linkRecensioni;
+</script>
+
+</body>
+</html>
